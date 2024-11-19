@@ -15,6 +15,7 @@ document.getElementById('create-room-button').addEventListener('click', function
         alert('방이 생성되었습니다!');
         // 방 생성 후 해당 방으로 이동
         window.location.href = `/roomDetails.jsp?room_id=${roomId}`;
+        
     })
     .catch(error => console.error('Error:', error));
 });

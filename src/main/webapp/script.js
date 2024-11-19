@@ -1,5 +1,3 @@
-// script.js - 방 생성 및 비밀번호 입력 모달 관련 전체 코드
-
 // 방 생성 이벤트
 const createRoomButton = document.getElementById('create-room-button');
 if (createRoomButton) {
@@ -13,7 +11,7 @@ if (createRoomButton) {
             return;
         }
 
-        console.log('방 생성 요청 중...'); // 디버깅 로그 추가
+        console.log('방 생성 요청 중...');
 
         fetch('/CreateRoomServlet', {
             method: 'POST',
@@ -22,7 +20,7 @@ if (createRoomButton) {
         })
         .then(response => response.text())
         .then(data => {
-            console.log('방 생성 응답:', data); // 디버깅 로그 추가
+            console.log('방 생성 응답:', data);
             alert('방이 생성되었습니다!');
             window.location.href = '/findingRoom.jsp';
         })
@@ -34,7 +32,7 @@ if (createRoomButton) {
 
 // 방 클릭 시 비밀번호 입력 모달 열기
 function openPasswordModal(roomId) {
-    console.log('비밀번호 모달 열기:', roomId); // 디버깅 로그 추가
+    console.log('비밀번호 모달 열기:', roomId);
     const modal = document.getElementById('passwordModal');
     if (modal) {
         modal.style.display = 'block';
@@ -69,7 +67,7 @@ if (closeButton) {
 function checkPassword(roomId) {
     const enteredPassword = document.getElementById('roomPassword').value.trim();
 
-    console.log('비밀번호 확인 요청 중...'); // 디버깅 로그 추가
+    console.log('비밀번호 확인 요청 중...');
 
     const contextPath = window.location.pathname.substring(0, window.location.pathname.indexOf("/", 2));
 
@@ -79,18 +77,19 @@ function checkPassword(roomId) {
         body: `room_id=${roomId}&room_pwd=${enteredPassword}`
     })
     .then(response => {
-        console.log('응답 상태 코드:', response.status);  // 상태 코드 확인
+        console.log('응답 상태 코드:', response.status);
         if (!response.ok) {
             throw new Error('비밀번호 확인 요청 실패 - 상태 코드: ' + response.status);
         }
         return response.json();
     })
     .then(data => {
-        console.log('응답 데이터:', data);  // 응답 데이터 확인
+        console.log('응답 데이터:', data);
         if (data.success) {
             alert('방에 입장합니다.');
-            window.location.href = `/roomDetails.jsp?room_id=${roomId}`;
-            
+            // JSP 파일 경로 수정
+            window.location.href = `/Room/roomDetails.jsp?room_id=${roomId}`;
+
         } else {
             alert('비밀번호가 일치하지 않습니다.');
         }

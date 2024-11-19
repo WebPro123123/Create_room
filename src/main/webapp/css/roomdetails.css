@@ -1,0 +1,89 @@
+/* room_details.css - 방 정보 및 비용 계산 페이지의 스타일 */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f4f6;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    font-size: 24px;
+    color: #4a4a4a;
+    margin-bottom: 20px;
+}
+
+h2 ,p{
+    color: #ffffff; /* 텍스트 색상을 흰색으로 변경 */
+    margin: 10px 0;
+}
+
+
+p {
+    font-size: 16px;
+}
+
+.back-button {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background: #7f00ff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    transition: background 0.3s ease-in-out;
+}
+
+.back-button:hover {
+    background: #5800b2;
+}
+
+.form-container {
+    margin-top: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label, select, input {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+select, input[type="number"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    background: #7f00ff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+button:hover {
+    background: #5800b2;
+}
